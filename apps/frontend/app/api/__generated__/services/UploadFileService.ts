@@ -46,7 +46,7 @@ export class UploadFileService {
 	 * @returns UploadFile response
 	 * @throws ApiError
 	 */
-	public postUploadByid(
+	public postUploadById(
 		id: string,
 		formData: {
 			fileInfo?: {
