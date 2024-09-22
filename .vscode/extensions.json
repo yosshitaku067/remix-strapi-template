@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"formulahendry.auto-close-tag",
+		"formulahendry.auto-rename-tag",
+		"dsznajder.es7-react-js-snippets",
+		"eamodio.gitlens",
+		"ms-ceintl.vscode-language-pack-ja",
+		"bradlc.vscode-tailwindcss",
+		"biomejs.biome",
+		"gruntfuggly.todo-tree"
+	]
+}

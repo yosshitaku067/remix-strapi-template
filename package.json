@@ -1,0 +1,35 @@
+{
+  "name": "remix-strapi",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "dotenv -e ./env/.env.local -- turbo dev",
+    "check": "turbo run check",
+    "check:write": "turbo run check:write",
+    "clean": "npm exec --workspaces -- npx rimraf node_modules .turbo && turbo run clean && npx rimraf node_modules .turbo",
+    "db:clean:local": "docker compose --env-file ./env/.env.local down && docker volume rm strapi-db-store",
+    "db:create:local": "npm run db:clean:local || docker compose --env-file ./env/.env.local up -d --remove-orphans",
+    "setup:install": "npm i -D rimraf@^6.0.1 turbo@^2.1.2 dotenv-cli@^7.4.2",
+    "setup:local:force": "npm run setup:install && npm run db:create:local && npm run clean && npm i && turbo run setup && npm run gen:frontend:client",
+    "gen:frontend:client": "openapi --input apps/strapi/src/extensions/documentation/documentation/1.0.0/full_documentation.json  --output apps/frontend/app/api/__generated__ --name StrapiClient --client node"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.2",
+    "dotenv-cli": "^7.4.2",
+    "openapi-typescript-codegen": "^0.29.0",
+    "rimraf": "^6.0.1",
+    "turbo": "^2.1.2",
+    "typescript": "^5.6.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "npm@10.8.3",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "@strapi/plugin-documentation": "^5.0.0"
+  }
+}

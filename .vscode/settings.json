@@ -1,0 +1,26 @@
+{
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "biomejs.biome",
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "explicit"
+	},
+	"files.encoding": "utf8",
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+	],
+	"files.autoGuessEncoding": true,
+	"todo-tree.tree.showCountsInTree": true,
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	}
+}

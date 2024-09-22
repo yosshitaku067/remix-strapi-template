@@ -1,0 +1,32 @@
+{
+	"kind": "collectionType",
+	"collectionName": "sightseeing_spots",
+	"info": {
+		"singularName": "sightseeing-spot",
+		"pluralName": "sightseeing-spots",
+		"displayName": "観光スポット"
+	},
+	"options": {
+		"draftAndPublish": false
+	},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"required": true
+		},
+		"description": {
+			"type": "text"
+		},
+		"photos": {
+			"allowedTypes": ["images", "files", "videos", "audios"],
+			"type": "media",
+			"multiple": true
+		},
+		"categories": {
+			"type": "relation",
+			"relation": "manyToMany",
+			"target": "api::category.category",
+			"mappedBy": "sightseeingSpots"
+		}
+	}
+}

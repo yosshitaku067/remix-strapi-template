@@ -1,0 +1,21 @@
+{
+  "name": "@remix-strapi-packages/utils",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.ts --dts --minify",
+    "clean": "npx rimraf dist node_modules",
+    "setup": "npm run build",
+    "check": "biome check ./src",
+    "check:write": "biome check --write ./src"
+  },
+  "description": "utils",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.2",
+    "@types/node": "^22.5.5",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2"
+  }
+}

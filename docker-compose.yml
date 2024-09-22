@@ -1,0 +1,19 @@
+services:
+  remix-strapi-db:
+    image: postgres:14-alpine
+    env_file:
+      - ./env/.env.local
+    container_name: ${DOCKER_POSTGRES_CONTAINER_NAME}
+    restart: always
+    ports:
+      - ${DATABASE_PORT}:5432
+    volumes:
+      - localvolume:/var/lib/postgresql/data
+    environment:
+      TZ: "Asia/Tokyo"
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+volumes:
+  localvolume:
+    name: ${DOCKER_POSTGRES_VOLUME_NAME}
